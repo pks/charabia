@@ -1,0 +1,51 @@
+[package]
+name = "charabia-py"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Python bindings for charabia tokenization library"
+
+[lib]
+name = "charabia"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.23", features = ["extension-module"] }
+charabia = { path = "../charabia", default-features = false }
+fst = "0.4"
+
+[features]
+default = [
+    "chinese",
+    "hebrew",
+    "japanese",
+    "thai",
+    "korean",
+    "greek",
+    "khmer",
+    "vietnamese",
+    "swedish-recomposition",
+    "turkish",
+    "german-segmentation"
+]
+
+# Mirror charabia's features
+chinese = ["charabia/chinese"]
+chinese-segmentation = ["charabia/chinese-segmentation"]
+chinese-normalization = ["charabia/chinese-normalization"]
+chinese-normalization-pinyin = ["charabia/chinese-normalization-pinyin"]
+hebrew = ["charabia/hebrew"]
+japanese = ["charabia/japanese"]
+japanese-segmentation-ipadic = ["charabia/japanese-segmentation-ipadic"]
+japanese-segmentation-unidic = ["charabia/japanese-segmentation-unidic"]
+japanese-transliteration = ["charabia/japanese-transliteration"]
+korean = ["charabia/korean"]
+thai = ["charabia/thai"]
+greek = ["charabia/greek"]
+latin-camelcase = ["charabia/latin-camelcase"]
+latin-snakecase = ["charabia/latin-snakecase"]
+khmer = ["charabia/khmer"]
+vietnamese = ["charabia/vietnamese"]
+swedish-recomposition = ["charabia/swedish-recomposition"]
+turkish = ["charabia/turkish"]
+german-segmentation = ["charabia/german-segmentation"]

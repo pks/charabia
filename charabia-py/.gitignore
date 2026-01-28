@@ -1,0 +1,17 @@
+# Virtual environment
+.venv/
+
+# Build artifacts
+target/
+*.so
+*.pyd
+*.egg-info/
+dist/
+build/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# maturin
+*.whl
